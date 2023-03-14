@@ -30,29 +30,30 @@ namespace HeadFirstOod
             return null;
         }
 
-        public List<Guitar> search(Guitar searchGuitar)
+        public List<Guitar> search(GuitarSpec searchSpec)
         {
             List<Guitar> matchingGuitars = new List<Guitar>();
             foreach (var guitar in guitars)
             {
-                if (searchGuitar.getBuilder() != guitar.getBuilder())
+                GuitarSpec guitarspec = guitar.getGuitarSpec();
+                if (searchSpec.getBuilder() != guitarspec.getBuilder())
                 {
                     continue;
                 }
-                string model = searchGuitar.getModel();
-                if (model != null && !model.Equals("") && !model.Equals(guitar.getModel()))
+                string model = searchSpec.getModel();
+                if (model != null && !model.Equals("") && !model.Equals(guitarspec.getModel()))
                 {
                     continue;
                 }
-                if (searchGuitar.getType() != guitar.getType())
+                if (searchSpec.getType() != guitarspec.getType())
                 {
                     continue;
                 }
-                if (searchGuitar.getBackWood() != guitar.getBackWood())
+                if (searchSpec.getBackWood() != guitarspec.getBackWood())
                 {
                     continue;
                 }
-                if (searchGuitar.getTopWood() != guitar.getTopWood())
+                if (searchSpec.getTopWood() != guitarspec.getTopWood())
                 {
                     continue;
                 }

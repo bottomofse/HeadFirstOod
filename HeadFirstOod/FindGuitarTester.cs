@@ -13,16 +13,17 @@ namespace HeadFirstOod
             Inventory inventory = new Inventory();
             initializeInevntory(inventory);
 
-            Guitar whatErinLikes = new Guitar("", 0, Builder.FENDER, "Stratocastor",
+            GuitarSpec whatErinLikes = new GuitarSpec(Builder.FENDER, "Stratocastor",
             Type.ELECTRIC, Wood.ALDER, Wood.ALDER);
             List<Guitar> matchingGuitars = inventory.search(whatErinLikes);
             if (matchingGuitars.Count > 0)
             {
                 foreach (var guitar in matchingGuitars)
                 {
-                    Console.WriteLine("Erin, you might like this " + guitar.getBuilder() + " " + guitar.getModel()
-                    + " " + guitar.getType() + " guitar: \n " + guitar.getBackWood() + " back and side.\n "
-                    + guitar.getTopWood() + " top.\nYou can have it for only $" + guitar.getPrice() + "!\n-----");
+                    GuitarSpec guitarspec = guitar.getGuitarSpec();
+                    Console.WriteLine("Erin, you might like this " + guitarspec.getBuilder() + " " + guitarspec.getModel()
+                    + " " + guitarspec.getType() + " guitar: \n " + guitarspec.getBackWood() + " back and side.\n "
+                    + guitarspec.getTopWood() + " top.\nYou can have it for only $" + guitar.getPrice() + "!\n-----");
                 }
             }
             else

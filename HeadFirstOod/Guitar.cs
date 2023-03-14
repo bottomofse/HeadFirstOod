@@ -8,12 +8,9 @@ namespace HeadFirstOod
 {
     class Guitar
     {
-        private string serialNumber, model;
+        private string serialNumber;
         private double price;
-        private Builder builder;
-        private Type type;
-        private Wood backWood;
-        private Wood topWood;
+        private GuitarSpec spec;
 
         public Guitar(string serialNumber, double price,
             Builder builder, string model, Type type,
@@ -21,11 +18,7 @@ namespace HeadFirstOod
         {
             this.serialNumber = serialNumber;
             this.price = price;
-            this.builder = builder;
-            this.model = model;
-            this.type = type;
-            this.backWood = backWood;
-            this.topWood = topWood;
+            this.spec = new GuitarSpec(builder, model, type, backWood, topWood);
         }
 
         public string getSerialNumber()
@@ -42,11 +35,36 @@ namespace HeadFirstOod
         {
             price = newPrice;
         }
+
+        public GuitarSpec getGuitarSpec()
+        {
+            return spec;
+        }
+        
+
+    }
+
+    public class GuitarSpec
+    {
+        private Builder builder;
+        private string model;
+        private Type type;
+        private Wood backWood;
+        private Wood topWood;
+
+        public GuitarSpec(Builder builder, string model, Type type, Wood backwood, Wood topwood)
+        {
+            this.builder = builder;
+            this.model = model;
+            this.type = type;
+            this.backWood = backwood;
+            this.topWood = topwood;
+        }
+
         public Builder getBuilder()
         {
             return builder;
         }
-
         public string getModel()
         {
             return model;
@@ -66,7 +84,6 @@ namespace HeadFirstOod
         {
             return topWood;
         }
-
     }
 
     public enum Type
