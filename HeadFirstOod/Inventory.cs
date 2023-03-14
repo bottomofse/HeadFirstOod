@@ -30,8 +30,9 @@ namespace HeadFirstOod
             return null;
         }
 
-        public Guitar search(Guitar searchGuitar)
+        public List<Guitar> search(Guitar searchGuitar)
         {
+            List<Guitar> matchingGuitars = new List<Guitar>();
             foreach (var guitar in guitars)
             {
                 if (searchGuitar.getBuilder() != guitar.getBuilder())
@@ -55,9 +56,9 @@ namespace HeadFirstOod
                 {
                     continue;
                 }
-                return guitar;
+                matchingGuitars.Add(guitar);
             }
-            return null;
+            return matchingGuitars;
         }
     }
 }

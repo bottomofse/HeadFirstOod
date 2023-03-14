@@ -15,12 +15,15 @@ namespace HeadFirstOod
 
             Guitar whatErinLikes = new Guitar("", 0, Builder.FENDER, "Stratocastor",
             Type.ELECTRIC, Wood.ALDER, Wood.ALDER);
-            Guitar guitar = inventory.search(whatErinLikes);
-            if (guitar != null)
+            List<Guitar> matchingGuitars = inventory.search(whatErinLikes);
+            if (matchingGuitars.Count > 0)
             {
-                Console.WriteLine("Erin, you might like this " + guitar.getBuilder() + " " + guitar.getModel()
+                foreach (var guitar in matchingGuitars)
+                {
+                    Console.WriteLine("Erin, you might like this " + guitar.getBuilder() + " " + guitar.getModel()
                     + " " + guitar.getType() + " guitar: \n " + guitar.getBackWood() + " back and side.\n "
-                    + guitar.getTopWood() + " top.\nYou can have it for only $" + guitar.getPrice() + "!");
+                    + guitar.getTopWood() + " top.\nYou can have it for only $" + guitar.getPrice() + "!\n-----");
+                }
             }
             else
             {
@@ -31,6 +34,7 @@ namespace HeadFirstOod
         private void initializeInevntory(Inventory inventory)
         {
             inventory.addGuitar("V95693",1499.95, Builder.FENDER,"Stratocastor",Type.ELECTRIC,Wood.ALDER,Wood.ALDER);
+            inventory.addGuitar("K18693", 1568.99, Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER);
         }
     }
 }
