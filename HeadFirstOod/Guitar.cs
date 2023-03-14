@@ -12,13 +12,11 @@ namespace HeadFirstOod
         private double price;
         private GuitarSpec spec;
 
-        public Guitar(string serialNumber, double price,
-            Builder builder, string model, Type type,
-            Wood backWood, Wood topWood)
+        public Guitar(string serialNumber, double price, GuitarSpec spec)
         {
             this.serialNumber = serialNumber;
             this.price = price;
-            this.spec = new GuitarSpec(builder, model, type, backWood, topWood);
+            this.spec = spec;
         }
 
         public string getSerialNumber()
@@ -51,14 +49,28 @@ namespace HeadFirstOod
         private Type type;
         private Wood backWood;
         private Wood topWood;
+        private int numStrings;
 
-        public GuitarSpec(Builder builder, string model, Type type, Wood backwood, Wood topwood)
+        public GuitarSpec(Builder builder, string model,
+            Type type, Wood backwood, Wood topwood, int numStrings)
         {
             this.builder = builder;
             this.model = model;
             this.type = type;
             this.backWood = backwood;
             this.topWood = topwood;
+            this.numStrings = numStrings;
+        }
+
+        public bool matches(GuitarSpec spec)
+        {
+            if (this.builder != spec.getBuilder()) return false;
+            if (this.model != spec.getModel()) return false;
+            if (this.type != spec.getType()) return false;
+            if (this.backWood != spec.getBackWood()) return false;
+            if (this.topWood != spec.getTopWood()) return false;
+            if (this.numStrings != spec.numStrings) return false;
+            return true;
         }
 
         public Builder getBuilder()
@@ -83,6 +95,11 @@ namespace HeadFirstOod
         public Wood getTopWood()
         {
             return topWood;
+        }
+
+        public int getNumStrings()
+        {
+            return numStrings;
         }
     }
 

@@ -14,7 +14,7 @@ namespace HeadFirstOod
             initializeInevntory(inventory);
 
             GuitarSpec whatErinLikes = new GuitarSpec(Builder.FENDER, "Stratocastor",
-            Type.ELECTRIC, Wood.ALDER, Wood.ALDER);
+            Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 12);
             List<Guitar> matchingGuitars = inventory.search(whatErinLikes);
             if (matchingGuitars.Count > 0)
             {
@@ -34,8 +34,9 @@ namespace HeadFirstOod
 
         private void initializeInevntory(Inventory inventory)
         {
-            inventory.addGuitar("V95693",1499.95, Builder.FENDER,"Stratocastor",Type.ELECTRIC,Wood.ALDER,Wood.ALDER);
-            inventory.addGuitar("K18693", 1568.99, Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER);
+            GuitarSpec spec = new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 12);
+            inventory.addGuitar("V95693",1499.95, spec);
+            inventory.addGuitar("K18693", 1568.99, spec);
         }
     }
 }

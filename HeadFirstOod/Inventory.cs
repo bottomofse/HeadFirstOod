@@ -10,11 +10,9 @@ namespace HeadFirstOod
     {
         private List<Guitar> guitars = new List<Guitar>();
 
-        public void addGuitar(string serialNumber, double price,
-            Builder builder, string model, Type type,
-            Wood backWood, Wood topWood)
+        public void addGuitar(string serialNumber, double price,GuitarSpec spec)
         {
-            Guitar guitar = new Guitar(serialNumber, price, builder, model, type, backWood, topWood);
+            Guitar guitar = new Guitar(serialNumber, price, spec);
             guitars.Add(guitar);
         }
 
@@ -36,28 +34,10 @@ namespace HeadFirstOod
             foreach (var guitar in guitars)
             {
                 GuitarSpec guitarspec = guitar.getGuitarSpec();
-                if (searchSpec.getBuilder() != guitarspec.getBuilder())
+                if (guitarspec.matches(searchSpec))
                 {
-                    continue;
+                    matchingGuitars.Add(guitar);
                 }
-                string model = searchSpec.getModel();
-                if (model != null && !model.Equals("") && !model.Equals(guitarspec.getModel()))
-                {
-                    continue;
-                }
-                if (searchSpec.getType() != guitarspec.getType())
-                {
-                    continue;
-                }
-                if (searchSpec.getBackWood() != guitarspec.getBackWood())
-                {
-                    continue;
-                }
-                if (searchSpec.getTopWood() != guitarspec.getTopWood())
-                {
-                    continue;
-                }
-                matchingGuitars.Add(guitar);
             }
             return matchingGuitars;
         }
