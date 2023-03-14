@@ -8,12 +8,16 @@ namespace HeadFirstOod
 {
     class Guitar
     {
-        private string serialNumber, builder, model, type, backWood, topWood;
+        private string serialNumber, model;
         private double price;
+        private Builder builder;
+        private Type type;
+        private Wood backWood;
+        private Wood topWood;
 
         public Guitar(string serialNumber, double price,
-            string builder, string model, string type,
-            string backWood, string topWood)
+            Builder builder, string model, Type type,
+            Wood backWood, Wood topWood)
         {
             this.serialNumber = serialNumber;
             this.price = price;
@@ -38,7 +42,7 @@ namespace HeadFirstOod
         {
             price = newPrice;
         }
-        public string getBuilder()
+        public Builder getBuilder()
         {
             return builder;
         }
@@ -48,20 +52,36 @@ namespace HeadFirstOod
             return model;
         }
 
-        public string getType()
+        public Type getType()
         {
             return type;
         }
 
-        public string getBackWood()
+        public Wood getBackWood()
         {
             return backWood;
         }
 
-        public string getTopWood()
+        public Wood getTopWood()
         {
             return topWood;
         }
 
     }
+
+    public enum Type
+    {
+        ACOUSTIC, ELECTRIC
+    }
+
+    public enum Builder
+    {
+        FENDER, MARTIN, GIBSON, COllINGS, OLSON, RYAN, PRS, ANY
+    }
+
+    public enum Wood
+    {
+        BLASILIAN_ROSEWOOD, MAHOGANY,MAPLE, COCOBOLO, CEDAR, ADIRONDACK, ALDER, SITKA 
+    }
+
 }

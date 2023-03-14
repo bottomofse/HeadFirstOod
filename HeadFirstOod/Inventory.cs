@@ -11,8 +11,8 @@ namespace HeadFirstOod
         private List<Guitar> guitars = new List<Guitar>();
 
         public void addGuitar(string serialNumber, double price,
-            string builder, string model, string type,
-            string backWood, string topWood)
+            Builder builder, string model, Type type,
+            Wood backWood, Wood topWood)
         {
             Guitar guitar = new Guitar(serialNumber, price, builder, model, type, backWood, topWood);
             guitars.Add(guitar);
@@ -34,8 +34,7 @@ namespace HeadFirstOod
         {
             foreach (var guitar in guitars)
             {
-                string builder = searchGuitar.getBuilder();
-                if (builder != null && !builder.Equals("") && !builder.Equals(guitar.getBuilder()))
+                if (searchGuitar.getBuilder() != guitar.getBuilder())
                 {
                     continue;
                 }
@@ -44,18 +43,15 @@ namespace HeadFirstOod
                 {
                     continue;
                 }
-                string type = searchGuitar.getType();
-                if (type != null && !type.Equals("") && !type.Equals(guitar.getType()))
+                if (searchGuitar.getType() != guitar.getType())
                 {
                     continue;
                 }
-                string backWood = searchGuitar.getBackWood();
-                if (backWood != null && !backWood.Equals("") && !backWood.Equals(guitar.getBackWood()))
+                if (searchGuitar.getBackWood() != guitar.getBackWood())
                 {
                     continue;
                 }
-                string topWood = searchGuitar.getTopWood();
-                if (topWood != null && !topWood.Equals("") && !topWood.Equals(guitar.getTopWood()))
+                if (searchGuitar.getTopWood() != guitar.getTopWood())
                 {
                     continue;
                 }
@@ -63,7 +59,5 @@ namespace HeadFirstOod
             }
             return null;
         }
-
-
     }
 }

@@ -13,8 +13,8 @@ namespace HeadFirstOod
             Inventory inventory = new Inventory();
             initializeInevntory(inventory);
 
-            Guitar whatErinLikes = new Guitar("", 0, "fender", "Stratocastor",
-            "electric", "Alder", "Alder");
+            Guitar whatErinLikes = new Guitar("", 0, Builder.FENDER, "Stratocastor",
+            Type.ELECTRIC, Wood.ALDER, Wood.ALDER);
             Guitar guitar = inventory.search(whatErinLikes);
             if (guitar != null)
             {
@@ -30,7 +30,7 @@ namespace HeadFirstOod
 
         private void initializeInevntory(Inventory inventory)
         {
-            inventory.addGuitar("V95693",1499.95, "Fender","Stratocastor","electric","Alder","Alder");
+            inventory.addGuitar("V95693",1499.95, Builder.FENDER,"Stratocastor",Type.ELECTRIC,Wood.ALDER,Wood.ALDER);
         }
     }
 }
