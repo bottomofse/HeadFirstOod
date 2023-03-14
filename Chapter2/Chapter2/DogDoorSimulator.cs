@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Chapter2
 {
@@ -15,11 +16,18 @@ namespace Chapter2
             Console.WriteLine("Fidoが外に出たいと吠える...");
             remote.pressButton();
             Console.WriteLine("\nFidoが外に出る...");
-            //remote.pressButton();
-            //Console.WriteLine("\nFidoが用をすます...");
-            //remote.pressButton();
-            //Console.WriteLine("\nFidoが家の中に戻る");
-            //remote.pressButton();
+            Console.WriteLine("\nFidoが用をすます");
+            try
+            {
+                Thread.Sleep(8000);
+            }
+            catch (ThreadInterruptedException){ }
+            Console.WriteLine("...しかしまだ外にいる！");
+            Console.WriteLine("\nFidoが吠え始める");
+            Console.WriteLine("...そこでToddがリモコンをつかむ");
+            remote.pressButton();
+            Console.WriteLine("\nFidoが家の中に戻る");
+
         }
     }
 }

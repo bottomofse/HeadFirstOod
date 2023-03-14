@@ -34,9 +34,7 @@ namespace Chapter2
                 };
                 timer.AutoReset = false;
                 timer.Enabled = true;
-                timer.Start();
-                Console.ReadLine();
-            }
+                timer.Start();            }
         }
     }
 }
