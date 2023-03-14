@@ -15,11 +15,11 @@ namespace Chapter2
             Console.WriteLine("Fidoが外に出たいと吠える...");
             remote.pressButton();
             Console.WriteLine("\nFidoが外に出る...");
-            remote.pressButton();
-            Console.WriteLine("\nFidoが用をすます...");
-            remote.pressButton();
-            Console.WriteLine("\nFidoが家の中に戻る");
-            remote.pressButton();
+            //remote.pressButton();
+            //Console.WriteLine("\nFidoが用をすます...");
+            //remote.pressButton();
+            //Console.WriteLine("\nFidoが家の中に戻る");
+            //remote.pressButton();
         }
     }
 }
